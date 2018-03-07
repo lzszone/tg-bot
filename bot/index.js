@@ -6,7 +6,10 @@ const bot = new Bot(token);
 bot.on('channel_post', ctx => {
   const {text, chat} = ctx.update.channel_post;
   const {username} = chat;
-  const token = text.match(/\$(.*)/);
+  const regex = /^\$(.*)/;
+  if(regex.test(text)) {
+    const token = text.match(regex)[1];
+  }
   ctx.reply(`heyyy, ${username}, your token is ${token}`)
 })
 
