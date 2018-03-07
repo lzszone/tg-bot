@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/lzszone/tg-bot#readme",
   "dependencies": {
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
+    "mongoose": "^5.0.9",
     "telegraf": "^3.19.0"
   }
 }
