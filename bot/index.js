@@ -7,7 +7,7 @@ bot.on('channel_post', ctx => {
   const {text, chat} = ctx.update.channel_post;
   const {username} = chat;
   const token = text.match(/\$(.*)/);
-  ctx.reply(`heyyy, ${username}, your token is ${_id}`)
+  ctx.reply(`heyyy, ${username}, your token is ${token}`)
 })
 
 module.exports = bot
