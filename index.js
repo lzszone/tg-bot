@@ -7,5 +7,8 @@ bot.start((ctx) => {
   console.log('started:', ctx.from.id)
   return ctx.reply('Welcome!')
 })
+bot.hears('hi', ctx => {
+  ctx.reply('heyyy, ')
+})
 
 bot.startPolling()
