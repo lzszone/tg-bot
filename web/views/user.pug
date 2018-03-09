@@ -1,0 +1,29 @@
+extends ./layout.pug
+
+block scripts
+  script(src="/jquery-1.11.2.min.js")
+  script(src="/clipboard.js")
+  script(src="/user.js")
+
+block content
+  - const {user, lang, domain} = data
+  - const info = lang? 'Copied!': '复制成功!'
+    div 图片
+    div 文字
+    h4
+      span 1. 加入 
+      a(href='https://t.me/lzszone') telegram 群组
+    h4 2. 发送下面的邀请码到该群组就可以获得188
+    div
+      input(type='text' placeholder='邀请码' value=`${user.token}`)
+      button#token(data-clipboard-text=`${user.token}` data-info=`${info}`) 复制
+    h4 3. 分享链接收集空投！
+    div
+      input(type='text' placeholder='链接' value=`${domain}/?inviteToken=${user.token}`)
+      button#link(data-clipboard-text=`${domain}/?inviteToken=${user.token}` data-info=`${info}`) 复制
+
+    div
+      div 已邀请 #{user.invites.length}
+      div 拥有的 #{user.account}
+
+      

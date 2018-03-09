@@ -2,13 +2,31 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/tg');
 const {Schema} = mongoose;
 
-const tokenSchema = new Schema({
-  token: String,
-  address: String
+const userSchema = new Schema({
+  token: {
+    type: String,
+    unique: true,
+    index: 1
+  },
+  address: {
+    type: String,
+    unique: true,
+    index: true
+  },
+  invites: {
+    type: [String],
+    index: true,
+    default: []
+  },
+  account: {
+    type: Number,
+    index: true,
+    default: 0
+  }
 });
 
-const tokenModel = mongoose.model('tokens', tokenSchema);
+const UserModel = mongoose.model('users', userSchema);
 
 module.exports = {
-  tokenModel
+  UserModel
 }

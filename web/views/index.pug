@@ -1,0 +1,24 @@
+extends ./layout.pug
+
+block scripts
+  script(src="/crypto-js.js")
+  script(src="/sha3.js")
+  script(src="/sha3eth.js")
+  script(src="/eth.js")
+  script(src="/jquery-1.11.2.min.js")
+  script(src="/index.js")
+
+block content
+  div 图片
+  a(href='https://t.me/lzszone') 加入我们的telegram
+  div 文字
+  div 输入你的以太坊钱包地址获得188个
+  - let action = '/user';
+  - const inviteToken = data.inviteToken;
+  - const errorMessage = data.lang? 'Please type a valid address': '请输入一个正确的地址'
+  if(inviteToken)
+    - action = action + `?inviteToken=${inviteToken}`
+  form(action=action method='POST')
+    label(for='address')
+    input#address(name='address' placeholder='输入钱包地址' data-error-message=`${errorMessage}`)
+    button#btn 获得188个
