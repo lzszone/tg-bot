@@ -5,7 +5,7 @@ const {domain} = require('../settings');
 
 const bot = new Bot(bot_token);
 
-bot.on('message', ctx => {
+bot.on('message',async ctx => {
   const {text, from} = ctx.update.message;
   const {first_name, last_name} = from;
   const regex = /^\/(.*)/;
