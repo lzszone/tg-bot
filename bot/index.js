@@ -25,7 +25,6 @@ bot.on('message',ctx => {
         Your share link (你的分享链接):
         http://${domain}?token=${token}`)
       })
-    }
   }
 })
 
