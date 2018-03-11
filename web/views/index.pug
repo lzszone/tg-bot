@@ -1,5 +1,8 @@
 extends ./layout.pug
 
+block css
+  link(rel="stylesheet", href="inputAddr.css")
+
 block scripts
   script(src="/crypto-js.js")
   script(src="/sha3.js")
@@ -9,16 +12,25 @@ block scripts
   script(src="/index.js")
 
 block content
-  div 图片
-  a(href='https://t.me/lzszone') 加入我们的telegram
-  div 文字
-  div 输入你的以太坊钱包地址获得188个
-  - let action = '/user';
-  - const inviteToken = data.inviteToken;
-  - const errorMessage = data.lang? 'Please type a valid address': '请输入一个正确的地址'
-  if(inviteToken)
-    - action = action + `?inviteToken=${inviteToken}`
-  form(action=action method='POST')
-    label(for='address')
-    input#address(name='address' placeholder='输入钱包地址' data-error-message=`${errorMessage}`)
-    button#btn 获得188个
+  - const {lang} = data
+  header.header
+    a(href='javascript: switchLang();') #{lang? 'en': '中文'}
+  div.main.container(style='height: 100%; margin-top: 0px;')
+    img.main-logo(src='/logo.png' style='width: 20% !important; height: 20% !important;')
+    div
+      h2.main-text1(style='margin-bottom: 20px;') #{lang? '区块链消费积分奖励社区': 'Blockchain of Consumption Bonus Points Community'}
+      div.main-btn
+        a(href='https://t.me/lztest' target='blank') #{lang? '加入 Telegram 群组': 'Join us on Telegram'}
+      h2.main-text2(style='text-align: left;') #{lang? 'CFC是基于区块链的加密数字货币理财社区Token，由真格基金、元链资本等一线风投投资，通过去中心化区块链结束实现与优质资产对接实现加密数字货币的流通与增值。限时空投100万糖果CFC，十分稀有，尽快抢。入群即送188个，推荐好友入群再送188个。推荐更多好友会有惊喜！': 'CFC is a Cryptocurrency Financing Community based on blockchain technology which was invested by ZhenFund, MetaChainCapital and other big VC in China just now. CFC project uses the blockchain technology to build up the relationships between cryptocurrency with good real assets and make the cryptocurrency to get interests. Limited time airdrop 1,000,000 CFC free token, 188 free tokens once you entered the group, plus 188 free tokens if your invited friend entered the group as well.'}
+      h2.main-text3(style='text-align: left;') #{lang? 'Many Candy Bag 是一个快速收取免费糖果的工具，入群就可以免费领到多种糖果，目前已经与多个项目深度合作并收集了海量糖果代币。': 'My Candy Bag is a great tool which helps you to collect massive free tokens quickly. Lots of projects cooperates with May Candy Bag to distribute their free Tokens, and the number of projects is increasing dramatically.'}
+      - let action = '/user';
+      - const inviteToken = data.inviteToken;
+      - const errorMessage = lang? '请输入一个正确的地址': 'Please type a valid address'
+      if(inviteToken)
+        - action = action + `?inviteToken=${inviteToken}`
+      div.main-text4(style='margin-bottom: 20px !important;')
+        text #{lang? '请输入您的ETH接收地址': 'Enter your ETH wallet address to'}
+        text.main-text4-edu #{lang? '免费获得188CFC': 'receive 188 CFC NOW!'}
+      form.main-input(action=action method='POST' style='margin-bottom: 20px !important;')
+        input.main-left#address(name='address' placeholder=`${lang? '您的ETH接收地址': 'Enter your ETH wallet address'}` data-error-message=`${errorMessage}` type='text')
+        button#btn.main-btn2 #{lang? '提交': 'Submit'}

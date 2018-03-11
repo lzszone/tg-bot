@@ -22,6 +22,10 @@ const userSchema = new Schema({
     type: Number,
     index: true,
     default: 0
+  },
+  isActivated: {
+    type: Boolean,
+    default: false
   }
 });
 

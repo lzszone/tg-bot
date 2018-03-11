@@ -1,5 +1,8 @@
 extends ./layout.pug
 
+block css
+  link(rel="stylesheet", href="/invitation.css")  
+
 block scripts
   script(src="/jquery-1.11.2.min.js")
   script(src="/clipboard.js")
@@ -7,23 +10,32 @@ block scripts
 
 block content
   - const {user, lang, domain} = data
-  - const info = lang? 'Copied!': '复制成功!'
-    div 图片
-    div 文字
-    h4
-      span 1. 加入 
-      a(href='https://t.me/lzszone') telegram 群组
-    h4 2. 发送下面的邀请码到该群组就可以获得188
-    div
-      input(type='text' placeholder='邀请码' value=`${user.token}`)
-      button#token(data-clipboard-text=`${user.token}` data-info=`${info}`) 复制
-    h4 3. 分享链接收集空投！
-    div
-      input(type='text' placeholder='链接' value=`${domain}/?inviteToken=${user.token}`)
-      button#link(data-clipboard-text=`${domain}/?inviteToken=${user.token}` data-info=`${info}`) 复制
+  - const info = lang? '复制成功!': 'Copied!'
+    header.header
+      a(href='javascript: switchLang();') #{lang? 'en': '中文'}
+    div.container(style='height: 100%;')
+      img.main-logo(src='/logo.png' style='width: 20% !important; height: 20% !important;')
+      div
+        h2.main-text1 #{lang? 'CFC是基于区块链的加密数字货币理财社区Token，由真格基金、元链资本等一线风投投资，通过去中心化区块链结束实现与优质资产对接实现加密数字货币的流通与增值。限时空投100万糖果CFC，十分稀有，尽快抢。入群即送188个，推荐好友入群再送188个。推荐更多好友会有惊喜！': 'CFC is a Cryptocurrency Financing Community based on blockchain technology which was invested by ZhenFund, MetaChainCapital and other big VC in China just now. CFC project uses the blockchain technology to build up the relationships between cryptocurrency with good real assets and make the cryptocurrency to get interests. Limited time airdrop 1,000,000 CFC free token, 188 free tokens once you entered the group, plus 188 free tokens if your invited friend entered the group as well.'}
+        p.main-text2 #{lang? 'Many Candy Bag 是一个快速收取免费糖果的工具，入群就可以免费领到多种糖果，目前已经与多个项目深度合作并收集了海量糖果代币。': 'My Candy Bag is a great tool which helps you to collect massive free tokens quickly. Lots of projects cooperates with May Candy Bag to distribute their free Tokens, and the number of projects is increasing dramatically.'}
+        h2.main-text3
+          span #{lang? '1. 加入 ': 'Join '} 
+          a(href='https://t.me/lztest' target='_blank') #{lang? 'telegram 群组': 'Telegram Group'}
+        h2 #{lang? '2. 把以下验证码发到群里即可获得 188 CFC!': '2. Send the following code in the channel to receive 188 CFC NOW!'}
+        div.main-input.main-text5
+          input.main-left(type='text' placeholder=`${lang? '邀请码': 'code'}` value=`/${user.token}`)
+          div.main-btn2#token(data-clipboard-text=`/${user.token}` data-info=`${info}` style='text-align: center;') #{lang? '复制': 'Copy'}
+        h2.main-text6 #{lang? '3. 分享链接收集空投！': '3. Share the link to receive airdrop!'}
+        div.main-input.main-text7
+          input.main-left(type='text' placeholder=`${lang? '链接': 'link'}` value=`${domain}/?inviteToken=${user.token}`)
+          div.main-btn2#link(data-clipboard-text=`${domain}/?inviteToken=${user.token}` data-info=`${info}` style='text-align: center;') #{lang? '复制': 'Copy'}
 
-    div
-      div 已邀请 #{user.invites.length}
-      div 拥有的 #{user.account}
+        div.main-bottom(style='text-align: center;')
+          div.main-bottom-left
+            text.main-bottom-left-t1 #{lang? '已成功邀请（人次）': 'Invited'}
+            text.main-bottom-left-t2 #{user.invites.length}
+          div.main-bottom-right
+            text.main-bottom-left-t1 #{lang? '已赚取CFC（枚数）': 'Earned CFC'}
+            text.main-bottom-left-t2 #{user.account}
 
       

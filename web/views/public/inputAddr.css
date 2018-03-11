@@ -1,0 +1,191 @@
+.main{
+    text-align: center;
+}
+.main-logo{
+    margin: 0 auto;
+}
+/*閫氱敤鏍峰紡*/
+/*鎵嬫満*/
+
+@media screen and (max-width:640px){
+    html{
+        font-size: 37.5px;
+    }
+    .header{
+        font-size: 0.3906rem;
+        font-weight: 500;
+        width: 8.5938rem;
+        margin: 0.6404rem auto;
+        text-align: right;
+        cursor:pointer;
+    }
+    .main{
+        margin-top: 1.5rem;
+        font-size: 0.3434rem;
+    }
+    .main-logo{
+        display: block;
+        width: 5.1562rem;
+        /*height: 1.5rem;*/
+        margin-bottom: 0.5625rem;
+    }
+    .main-text1{
+        font-size: 0.3906rem;
+        margin-bottom: 2.2187rem;
+    }
+    .main-btn{
+        margin: 0 auto;
+        width: 6.4rem;
+        height: 1.09rem;
+        background-color: #df2636;
+        line-height: 1.09rem;
+        border-radius: 5.04rem;
+        border: none;
+        margin-bottom: 0.625rem;
+    }
+    .main-btn a{
+        color: #fff;
+        font-size: 0.3906rem;
+    }
+    .main-text2{
+        margin-bottom: 0.3125rem;
+    }
+    .main-text3{
+        margin-bottom: 1.45rem;
+    }
+    .main-text4{
+        font-weight: 700;
+        margin-bottom: 0.7812rem;
+    }
+    .main-text4-edu{
+        color: #00E34C;
+    }
+    .main-input{
+        margin: 0 auto;
+        width: 8.5938rem;
+        height: 1rem;
+        line-height: 1rem;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #DDDDDD;
+        border-radius: 0.5rem;
+    }
+    .main-left{
+        width: 270px;
+        border: none;
+        margin-left: 0.4rem;
+    }
+    .main-btn:active{
+        background-color: #2763ff;
+    }
+    .main-btn2:active{
+        background-color: #2763ff;
+    }
+    .main-btn2{
+        width: 1.3437rem;
+        height: 0.8437rem;
+        line-height: 0.8437rem;
+        border: none;
+        margin: 0.00rem 0.07rem 0 0;
+        color: #fff;
+        border-radius: 30px;
+        background-color: #3678ff;
+    }
+}
+/*骞虫澘*/
+@media screen and (min-width:640px){
+    html,body{
+        font-size: 16px;
+    }
+    .header{
+        margin: 30px auto;
+        width: 579px;
+        text-align: right;
+    }
+    .main-btn2:hover{
+        background-color: #376eff;
+    }
+    .main-btn2:active{
+        background-color: #2763ff;
+    }
+    .main-btn:hover{
+        background-color: #376eff;
+    }
+    .main-btn:active{
+        background-color: #2763ff;
+    }
+    .main-logo{
+        display: block;
+        width: 240px;
+        height: 72px;
+        margin-bottom: 40px;
+    }
+    .main-text1{
+        margin-bottom: 40px;
+    }
+    .main{
+        margin-top: 100px;
+    }
+    .main-btn{
+        margin: 0 auto;
+        width: 240px;
+        height: 40px;
+        background-color: #3678ff;
+        line-height: 40px;
+        border-radius: 20px;
+        border: none;
+        margin-bottom: 38px;
+    }
+    .main-btn a{
+        color: #fff;
+        text-decoration:none;
+        font-size: 16px;
+    }
+    .main-text2{
+        margin-bottom: 25px;
+    }
+    .main-text3{
+        margin-bottom: 40px;
+    }
+    .main-text4{
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    .main-text4-edu{
+        color: #00E34C;
+    }
+    .main-input{
+        margin: 0 auto;
+        width: 575px;
+        height: 45px;
+        line-height: 45px;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #DDDDDD;
+        border-radius: 23px;
+    }
+    .main-left {
+        width: 520px;
+        border: none;
+        padding-left: 10px;
+        margin-left: 13px;
+        height: 100%;
+    }
+    .main-btn2{
+        width: 80px;
+        height: 35px;
+        line-height: 34px;
+        border: none;
+        align-items: center;
+        margin-right: 5px;
+        color: #fff;
+        text-align: center;
+        border-radius: 17.5px;
+        background-color: #3678ff;
+    }
+}
+@media screen and (max-width:320px){
+    html{
+        font-size: 28px;
+    }
+}

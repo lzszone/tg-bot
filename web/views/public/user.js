@@ -9,3 +9,11 @@ $(function() {
     alert(info)
   })
 })
+
+function switchLang() {
+  var match = window.location.search.match(/lang=/);
+  if(match)
+    window.location.search = ''
+  else
+    window.location.search = '?lang=zh'
+}

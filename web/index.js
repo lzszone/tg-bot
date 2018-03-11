@@ -70,7 +70,7 @@ app
       console.log(e)
     }
   })
-  .use(serve('web/views/public'))
+  .use(serve('views/public'))
   .use(koaBody())
   .use(async (ctx, next) => {
     ctx.body = ctx.request.body;
@@ -85,4 +85,4 @@ app
     return next()
   });
 
-module.exports = app.callback();
+app.listen(8888);

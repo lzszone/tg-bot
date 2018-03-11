@@ -10,3 +10,17 @@ $(function() {
     }
   })
 })
+
+function switchLang() {
+  var query = window.location.search;
+  var inviteToken = query.match(/inviteToken=[^&]*/);
+  var lang = query.match(/lang=[^&]*/);
+  var search = '?';
+  if(inviteToken) {
+    search += inviteToken[0];
+  }
+  if(!lang) {
+    search += '&lang=zh'
+  }
+  window.location.search = search;
+}
