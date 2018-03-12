@@ -70,7 +70,7 @@ app
       console.log(e)
     }
   })
-  .use(serve('views/public'))
+  .use(serve('web/views/public'))
   .use(koaBody())
   .use(async (ctx, next) => {
     ctx.body = ctx.request.body;
