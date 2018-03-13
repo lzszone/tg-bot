@@ -80,7 +80,7 @@ app
   .use(async (ctx, next) => {
     const {data} = ctx;
     if(ctx.template)
-      ctx.body = pug.renderFile(ctx.template, {data});
+      ctx.body = pug.renderFile(ctx.template, {data, cache: true});
     ctx.type = 'html';
     return next()
   });
