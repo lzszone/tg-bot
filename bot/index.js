@@ -1,5 +1,5 @@
 const Bot = require('telegraf');
-const bot_token = '463770035:AAE1Bf-MIRP4uMk7uYQjZa-B8N6Vhdjv5wg';
+const {bot_token} = require('../settings');
 const {UserModel} = require('../models');
 const {domain} = require('../settings');
 
@@ -7,15 +7,16 @@ const bot = new Bot(bot_token);
 
 bot.on('message',ctx => {
   const {text, from} = ctx.update.message;
-  const {first_name, last_name} = from;
+  const {first_name, last_name, id} = from;
   const regex = /^\/(.*)/;
   if(regex.test(text)) {
     const token = text.match(regex)[1];
     let user;
     return UserModel.findOne({token})
       .then(user => {
-        if(user && !user.isActivated) {
+        if(user && !user.isActivated && user.telegram_id === '') {
           user.account += + 188;
+          user.telegram_id = id;
           user.isActivated = true;
           return user.save()
             .then(() => {

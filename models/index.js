@@ -26,6 +26,10 @@ const userSchema = new Schema({
   isActivated: {
     type: Boolean,
     default: false
+  },
+  telegram_id: {
+    type: String,
+    default: ''
   }
 });
 
